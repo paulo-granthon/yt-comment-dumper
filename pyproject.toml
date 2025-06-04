@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "yt_comment_dumper"
+version = "0.1.0"
+description = "Fetch YouTube comments and store them in MongoDB"
+readme = "README.md"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+youtool = "^0.1.0"
+pymongo = "^4.6.0"
+python-dotenv = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

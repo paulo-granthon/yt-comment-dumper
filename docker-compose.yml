@@ -1,0 +1,11 @@
+---
+services:
+  db:
+    image: mongo:6.0
+    container_name: yt_comment_dumper
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: secret
+      MONGO_INITDB_DATABASE: yt_comment_dumper
+    ports:
+      - "27017:27017"
