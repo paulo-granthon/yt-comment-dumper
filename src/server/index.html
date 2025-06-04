@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Comments</title>
+    <style>
+      .comment {
+        margin: 10px 0;
+        padding-left: 20px;
+        border-left: 1px solid #ccc;
+      }
+      .author {
+        font-weight: bold;
+      }
+      .profile-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Comments</h1>
+    {% macro render_comments(comments) %} {% for comment in comments %}
+    <div class="comment">
+      <img
+        src="{{ comment.author.profile_image_url }}"
+        alt="Profile Picture"
+        class="profile-pic"
+      />
+      <span class="author">{{ comment.author.name }}</span>
+      <p>{{ comment.text }}</p>
+      {% if comment.replies %} {{ render_comments(comment.replies) }} {% endif
+      %}
+    </div>
+    {% endfor %} {% endmacro %} {{ render_comments(comments) }}
+  </body>
+</html>
