@@ -8,12 +8,18 @@
 %:
 	@:
 
-all: prep etl
+all: prep db-up etl serve db-down
 
 prep: prepare
 prepare:
 	@poetry lock
 	@poetry install
+
+db-up:
+	@docker-compose up -d
+
+db-down:
+	@docker-compose down
 
 serve: server
 server:
