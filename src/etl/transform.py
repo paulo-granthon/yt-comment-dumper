@@ -13,7 +13,7 @@ def transform_comment(comment, video_id):
         "text": comment.get("text"),
         "author": {
             "name": comment.get("author"),
-            "channel_url": f"https://youtube.com/{comment.get("author")}",
+            "channel_url": f"https://youtube.com/{comment.get('author')}",
             "profile_image_url": comment.get("author_profile_image_url"),
         },
         "published_at": comment.get("published_at"),
