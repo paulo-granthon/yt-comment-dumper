@@ -12,7 +12,8 @@ app = Flask(
 def index():
     collection = get_client()
     comments_cursor = collection.find()
-    comments = list(comments_cursor)
+    comments = list(comments_cursor) if comments_cursor else []
+    comments.sort(key=lambda x: x.get('likes', 0), reverse=True)
     comment_tree = build_comment_tree(comments)
     return render_template('index.html', comments=comment_tree)
 
